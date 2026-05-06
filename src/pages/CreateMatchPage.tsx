@@ -127,10 +127,10 @@ export default function CreateMatchPage() {
         <button
           type="submit"
           disabled={mutation.isPending}
-          className="w-full py-3.5 bg-[#F5D000] border-2 border-[#1a1a1a]
-                     hover:bg-[#e6c400] disabled:opacity-50 text-[#1a1a1a]
+          className="w-full py-4 bg-[#F5D000] border-2 border-[#1a1a1a]
+                     hover:bg-[#e6c400] hover:shadow-md disabled:opacity-50 text-[#1a1a1a]
                      font-extrabold uppercase tracking-widest text-sm
-                     rounded-xl transition-colors"
+                     rounded-xl transition-all duration-200"
         >
           {mutation.isPending ? (
             <span className="flex items-center justify-center gap-2">

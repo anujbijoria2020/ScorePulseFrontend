@@ -24,3 +24,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+lint2.txt

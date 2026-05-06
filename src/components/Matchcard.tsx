@@ -48,8 +48,8 @@ export default function MatchCard({ match, isSelected, onWatchLive, onClose }: P
     })
 
   const cardClass = isSelected
-    ? 'bg-[#FFFCE8] border-[#F5D000]'
-    : 'bg-white border-[#e8e6e0] hover:border-[#F5D000] hover:-translate-y-0.5'
+    ? 'bg-[#FFFCE8] border-[#F5D000] shadow-lg'
+    : 'bg-white border-[#1a1a1a] hover:border-[#F5D000] hover:shadow-md hover:-translate-y-1'
 
   return (
     <article
@@ -58,12 +58,12 @@ export default function MatchCard({ match, isSelected, onWatchLive, onClose }: P
       onClick={selectCard}
       onKeyDown={handleCardKeyDown}
       aria-pressed={isSelected}
-      className={`rounded-[14px] p-4 border-2 transition-all duration-150 cursor-pointer ${cardClass}`}
+      className={`rounded-2xl p-5 border-2 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md ${cardClass}`}
     >
       {/* Top row */}
-      <div className="flex justify-between items-center mb-3.5 gap-3">
-        <span className="text-[10px] font-semibold uppercase tracking-widest bg-[#F5F4EF]
-             border-[1.5px] border-[#d9d6cf] text-gray-600 px-2.5 py-1 rounded-md leading-none">
+      <div className="flex justify-between items-center mb-5 gap-3">
+        <span className="text-[10px] font-semibold uppercase tracking-widest bg-transparent
+             border-2 border-[#1a1a1a] text-gray-700 px-3 py-1.5 rounded-md leading-none">
           {match.sport}
         </span>
         <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide ${statusTone[match.status]}`}>
@@ -73,30 +73,30 @@ export default function MatchCard({ match, isSelected, onWatchLive, onClose }: P
       </div>
 
       {/* Score row */}
-      <div className="flex items-center justify-between gap-3 my-3">
+      <div className="flex items-center justify-between gap-5 my-6">
         <div className="flex-1 min-w-0">
-          <p className="text-[13px] font-semibold text-gray-700 truncate mb-1.5">
+          <p className="text-[15px] font-bold text-gray-800 truncate mb-3">
             {match.homeTeam}
           </p>
           <div
-            className="inline-block min-w-12 text-center px-2.5 py-1
-                       bg-[#F5D000] border-2 border-[#1a1a1a] rounded-lg"
-            style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '34px', fontWeight: 800, lineHeight: 1 }}
+            className="inline-block min-w-16 text-center px-4 py-2
+                       bg-[#F5D000] border-2 border-[#1a1a1a] rounded-xl shadow-sm"
+            style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '40px', fontWeight: 800, lineHeight: 1 }}
           >
             {match.homeScore}
           </div>
         </div>
 
-        <div className="text-[12px] font-bold text-gray-400 shrink-0 px-2">vs</div>
+        <div className="text-[16px] font-black text-gray-300 shrink-0 px-4">VS</div>
 
         <div className="flex-1 min-w-0 text-right">
-          <p className="text-[13px] font-semibold text-gray-700 truncate mb-1.5">
+          <p className="text-[15px] font-bold text-gray-800 truncate mb-3">
             {match.awayTeam}
           </p>
           <div
-            className="inline-block min-w-12 text-center px-2.5 py-1
-                       bg-[#F5D000] border-2 border-[#1a1a1a] rounded-lg"
-            style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '34px', fontWeight: 800, lineHeight: 1 }}
+            className="inline-block min-w-16 text-center px-4 py-2
+                       bg-[#F5D000] border-2 border-[#1a1a1a] rounded-xl shadow-sm"
+            style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '40px', fontWeight: 800, lineHeight: 1 }}
           >
             {match.awayScore}
           </div>
@@ -104,14 +104,14 @@ export default function MatchCard({ match, isSelected, onWatchLive, onClose }: P
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between pt-2.5 mt-2 border-t-[1.5px] border-[#f0ede4] gap-2">
+      <div className="flex items-center justify-between pt-4 mt-4 border-t-[1.5px] border-[#f0ede4] gap-2">
         <p className="text-[11px] text-gray-500 font-medium leading-none">{formattedTime}</p>
 
         {isSelected ? (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <span
-              className="px-4 py-1.5 text-[12px] font-bold uppercase tracking-wide
-                         rounded-lg border-2 border-[#1a1a1a] bg-[#1a1a1a] text-[#F5D000] leading-none"
+              className="px-4 py-2 text-[13px] font-bold uppercase tracking-wide
+                         rounded-lg border-2 border-[#87CEEB] bg-white text-[#87CEEB] leading-none"
             >
               Watching Live
             </span>
@@ -121,9 +121,9 @@ export default function MatchCard({ match, isSelected, onWatchLive, onClose }: P
                 event.stopPropagation()
                 onClose()
               }}
-              className="px-3 py-1.5 ml-1.5 text-[12px] font-semibold uppercase tracking-wide
-                         rounded-lg border-2 border-[#e0ddd4] bg-white text-[#1a1a1a]
-                         hover:border-[#a9a9a9]"
+              className="px-4 py-2 text-[13px] font-semibold uppercase tracking-wide
+                         rounded-lg border-2 border-[#87CEEB] bg-white text-[#87CEEB]
+                         hover:bg-[#e0f4ff] transition-colors"
             >
               Close
             </button>
@@ -135,8 +135,8 @@ export default function MatchCard({ match, isSelected, onWatchLive, onClose }: P
               event.stopPropagation()
               selectCard()
             }}
-            className="px-4 py-1.5 text-[12px] font-bold uppercase tracking-wide
-                       rounded-lg border-2 border-[#1a1a1a] bg-[#F5D000] text-[#1a1a1a] leading-none"
+            className="px-5 py-2 text-[13px] font-bold uppercase tracking-wide
+                       rounded-lg border-2 border-[#1a1a1a] bg-[#F5D000] text-[#1a1a1a] leading-none hover:bg-[#e6c400] hover:shadow-md transition-all duration-200"
           >
             Watch Live
           </button>

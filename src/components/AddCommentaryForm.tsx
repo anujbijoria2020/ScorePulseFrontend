@@ -56,9 +56,9 @@ export default function AddCommentaryForm({ matchId }: Props) {
     <div className="mt-6">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full py-3 rounded-xl border-2 border-dashed border-gray-300
-                   text-gray-400 hover:border-[#1a1a1a] hover:text-[#1a1a1a]
-                   font-bold uppercase tracking-wide text-xs transition-all duration-150"
+        className="w-full py-3.5 rounded-xl border-2 border-dashed border-gray-300
+                   text-gray-500 hover:border-[#1a1a1a] hover:text-[#1a1a1a] hover:bg-gray-50
+                   font-bold uppercase tracking-wide text-xs transition-all duration-200"
       >
         {open ? '✕ Close Form' : '＋ Add Commentary'}
       </button>
@@ -138,9 +138,9 @@ export default function AddCommentaryForm({ matchId }: Props) {
           <button
             onClick={handleSubmit}
             disabled={mutation.isPending}
-            className="w-full py-3 bg-[#F5D000] border-2 border-[#1a1a1a] hover:bg-[#e6c400]
+            className="w-full py-3.5 bg-[#F5D000] border-2 border-[#1a1a1a] hover:bg-[#e6c400] hover:shadow-md
                        disabled:opacity-50 text-[#1a1a1a] font-extrabold uppercase tracking-wide
-                       text-sm rounded-xl transition-colors"
+                       text-sm rounded-xl transition-all duration-200"
           >
             {mutation.isPending ? (
               <span className="flex items-center justify-center gap-2">

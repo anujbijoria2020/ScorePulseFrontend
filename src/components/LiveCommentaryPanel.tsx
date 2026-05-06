@@ -32,26 +32,26 @@ export default function LiveCommentaryPanel({ matchId }: Props) {
 
   return (
     <div className="h-full bg-white">
-      <div className="sticky top-0 z-20 h-12 bg-[#DCEEFF] border-b-2 border-[#b8d4f0] px-4.5 flex items-center justify-between">
+      <div className="sticky top-0 z-20 h-14 bg-[#DCEEFF] border-b-2 border-[#b8d4f0] px-5 flex items-center justify-between">
         <h2
           className="uppercase text-[#1a3a5c] leading-none"
-          style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '17px', fontWeight: 800, letterSpacing: '0.5px' }}
+          style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '20px', fontWeight: 800, letterSpacing: '0.5px' }}
         >
           Live Commentary
         </h2>
-        <span className="text-[10px] font-bold uppercase tracking-wide bg-[#1a3a5c] text-[#DCEEFF] px-2.5 py-1 rounded-md leading-none">
+        <span className="text-[10px] font-bold uppercase tracking-wide bg-[#1a3a5c] text-[#DCEEFF] px-3 py-1.5 rounded-md leading-none">
           Real-time
         </span>
       </div>
 
-      <div className="p-3.5">
+      <div className="p-5">
         {isError && (
           <div className="text-center py-8 bg-white border-2 border-red-200 rounded-lg mb-4">
             <p className="text-red-500 font-semibold mb-3 text-sm">Failed to load commentary.</p>
             <button
               onClick={() => refetch()}
-              className="px-4 py-1.5 bg-[#F5D000] border-2 border-[#1a1a1a] text-[#1a1a1a]
-                         font-bold uppercase tracking-wide rounded-lg text-xs hover:bg-[#e6c400]"
+              className="px-5 py-2 bg-[#F5D000] border-2 border-[#1a1a1a] text-[#1a1a1a]
+                         font-bold uppercase tracking-wide rounded-lg text-xs hover:bg-[#e6c400] hover:shadow-md transition-all duration-200"
             >
               Retry
             </button>
@@ -59,15 +59,15 @@ export default function LiveCommentaryPanel({ matchId }: Props) {
         )}
 
         {isLoading ? (
-          <div className="space-y-4">
+          <div className="space-y-5">
             {Array.from({ length: 3 }).map((_, i) => <SkeletonCard key={i} />)}
           </div>
         ) : feed.length === 0 ? (
-          <div className="text-center py-12 px-3 text-gray-400 text-sm font-medium border border-dashed border-[#e8e6e0] rounded-lg">
+          <div className="text-center py-16 px-4 text-gray-400 text-sm font-medium border border-dashed border-[#e8e6e0] rounded-xl">
             No commentary yet. Add the first event below.
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-5">
             {feed.map((commentary) => (
               <CommentaryItem key={commentary.id} commentary={commentary} />
             ))}
