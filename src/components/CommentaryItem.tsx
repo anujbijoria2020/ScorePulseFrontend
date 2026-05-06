@@ -4,25 +4,7 @@ interface Props {
   commentary: Commentary
 }
 
-const eventBadge: Record<string, string> = {
-  four:         'bg-emerald-50 border-emerald-400 text-emerald-800',
-  six:          'bg-blue-50 border-blue-400 text-blue-800',
-  wicket:       'bg-red-50 border-red-400 text-red-800',
-  goal:         'bg-yellow-50 border-yellow-400 text-yellow-800',
-  penalty:      'bg-orange-50 border-orange-400 text-orange-800',
-  pass:         'bg-green-50 border-green-400 text-green-800',
-  substitution: 'bg-blue-50 border-blue-400 text-blue-800',
-  yellow_card:  'bg-yellow-50 border-yellow-400 text-yellow-800',
-  red_card:     'bg-red-50 border-red-400 text-red-800',
-  kickoff:      'bg-gray-50 border-gray-300 text-gray-700',
-}
-
-const defaultBadge = 'bg-gray-50 border-gray-300 text-gray-700'
-
 export default function CommentaryItem({ commentary }: Props) {
-  const key = commentary.eventType?.toLowerCase() ?? ''
-  const badgeClass = eventBadge[key] ?? defaultBadge
-
   return (
     <div className="flex items-start gap-3 mb-6">
       {/* Orange dot */}
