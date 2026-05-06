@@ -38,32 +38,32 @@ export default function Navbar({ connectionStatus }: Props) {
   }
 
   return (
-    <nav className="bg-[#F5D000] border-b-2 border-[#1a1a1a] sticky top-0 z-50">
+    <nav className="bg-white border-b-2 border-[#1a1a1a] sticky top-0 z-50">
       <div className="h-16 w-full px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex flex-col items-start leading-none">
           <span
             className="font-black text-[#1a1a1a] tracking-tight"
-            style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '28px', letterSpacing: '-0.5px' }}
+            style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '32px', letterSpacing: '-0.5px' }}
           >
             Spotrz
           </span>
-          <span className="text-[11px] font-semibold text-[#5a5200] tracking-wide uppercase">
-            Real-time match data
+          <span className="text-[11px] font-semibold text-gray-500 tracking-wide uppercase">
+            Real-time match data demo
           </span>
         </Link>
 
         {/* Right side */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           {navLink('/', 'Matches')}
           {navLink('/matches/new', 'New Match')}
 
           {/* WS status pill */}
           <div className="hidden md:flex items-center">
-            <div className="flex items-center gap-2 bg-white border-[1.5px] border-[#1a1a1a] rounded-full px-4 py-1.5">
+            <div className="flex items-center gap-2 bg-white border-2 border-[#1a1a1a] rounded-full px-4 py-1.5 shadow-sm">
               <span className={`w-2 h-2 rounded-full ${statusDot[connectionStatus]}`} />
               <span className="text-[12px] font-bold text-[#1a1a1a] uppercase tracking-wide leading-none">
-                LIVE {statusLabel[connectionStatus]}
+                LIVE CONNECTED
               </span>
             </div>
           </div>

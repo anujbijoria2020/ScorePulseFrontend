@@ -27,24 +27,24 @@ export default function MatchListPage() {
   const hasSelection = selectedMatchId !== null
 
   return (
-    <div className={`grid min-h-[calc(100vh-64px)] ${hasSelection ? 'lg:grid-cols-[minmax(0,1fr)_380px]' : 'grid-cols-1'}`}>
-      <section className="bg-[#F5F4EF] p-6 lg:h-[calc(100vh-64px)] lg:overflow-y-auto">
+    <div className={`grid min-h-[calc(100vh-64px)] ${hasSelection ? 'lg:grid-cols-[minmax(0,1fr)_500px]' : 'grid-cols-1'}`}>
+      <section className="bg-[#F5F4EF] p-8 lg:h-[calc(100vh-64px)] lg:overflow-y-auto">
         {/* Page header */}
-        <div className="flex items-center justify-between mb-4 gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-1.25 h-5.5 rounded-[3px] mr-2.5 bg-[#F5D000]" />
+        <div className="flex items-center justify-between mb-8 gap-4">
+          <div className="flex items-center gap-4">
+            <div className="w-2 h-7 rounded-sm bg-[#F5D000]" />
             <h1
               className="font-black text-[#1a1a1a] uppercase tracking-wide"
-              style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '24px' }}
+              style={{ fontFamily: "'Barlow Condensed', 'Arial Black', sans-serif", fontSize: '32px' }}
             >
               Current Matches
             </h1>
           </div>
           <button
             onClick={() => refetch()}
-            className="text-xs font-bold uppercase tracking-wide text-gray-500
-                     hover:text-[#1a1a1a] border-2 border-gray-200 hover:border-[#1a1a1a]
-                     px-3 py-1.5 rounded-lg transition-all duration-150"
+            className="text-xs font-bold uppercase tracking-wide text-white
+                     bg-[#1a1a1a] hover:bg-[#333333]
+                     px-5 py-2.5 rounded-lg transition-all duration-200"
           >
             ↻ Refresh
           </button>
@@ -55,16 +55,16 @@ export default function MatchListPage() {
             <p className="text-red-500 font-semibold mb-4">Failed to load matches.</p>
             <button
               onClick={() => refetch()}
-              className="px-5 py-2 bg-[#F5D000] border-2 border-[#1a1a1a] text-[#1a1a1a]
+              className="px-6 py-2.5 bg-[#F5D000] border-2 border-[#1a1a1a] text-[#1a1a1a]
                        font-bold uppercase tracking-wide rounded-xl text-xs transition-colors
-                       hover:bg-[#e6c400]"
+                       hover:bg-[#e6c400] hover:shadow-md"
             >
               Retry
             </button>
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {isLoading
             ? Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
             : safeMatches.map((match) => (
@@ -93,7 +93,7 @@ export default function MatchListPage() {
       </section>
 
       {selectedMatchId !== null && (
-        <aside className="bg-white border-t-2 border-[#e8e6e0] lg:border-t-0 lg:border-l-2 lg:border-[#e8e6e0] lg:sticky lg:top-16 lg:h-[calc(100vh-64px)] lg:overflow-y-auto">
+        <aside className="bg-white border-t-2 border-[#e8e6e0] lg:border-t-0 lg:border-l-2 lg:border-[#e8e6e0] lg:sticky lg:top-16 lg:h-[calc(100vh-64px)] lg:overflow-y-auto shadow-lg">
           <LiveCommentaryPanel matchId={selectedMatchId} />
         </aside>
       )}
