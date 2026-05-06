@@ -11,12 +11,6 @@ const statusDot: Record<ConnectionStatus, string> = {
   disconnected: 'bg-red-500',
 }
 
-const statusLabel: Record<ConnectionStatus, string> = {
-  connected: 'CONNECTED',
-  connecting: 'CONNECTING',
-  disconnected: 'OFFLINE',
-}
-
 export default function Navbar({ connectionStatus }: Props) {
   const location = useLocation()
 
